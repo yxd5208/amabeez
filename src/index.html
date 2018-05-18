@@ -1,0 +1,207 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AmaBeez</title>
+  <meta charset="utf-8">
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!-- Popper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/5.0.2/firebase.js"></script>
+
+  <!-- w3CSS -->
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href= "css/styles.css" />
+
+</head>
+
+<body>
+
+  <div class="header">
+    <div class="logo_container">
+        <img src="lib/logo.png" alt="AmaBeez" id="top_logo">
+    </div>
+   <div class="btn_logout_container" style="display:none">
+     # online: <span id="num_curr_display"></span>
+     <button id="btn_logout" type="button" class="btn-customize">Logout</button>
+   </div>
+  </div>
+
+  <div class="login_page">
+      <div class="container-fluid">
+        <div class="greeting_container">
+            <p>
+              Hi there, welcome to AmaBeez. <br />Hope you are doing well :P
+            </p>
+        </div>
+      </div>
+      <div class="container">
+        <div class="form-group">
+          <label for="usr">Email:</label>
+          <input type="text" class="form-control" id="txtEmail">
+        </div>
+        <div class="form-group">
+          <label for="pwd">Password:</label>
+          <input type="password" class="form-control" id="txtPassword">
+        </div>
+        <div class="btn-group btn-group-lg">
+          <button id="btn_mem_login" type="button" class="btn btn-customize">Log In</button>
+          <button id="btn_mem_signup" type="button" class="btn btn-customize">Sign Up</button>
+        </div>
+      </div>
+  </div>
+  <div class="signup_page">
+    <div class="container-fluid">
+      <div class="greeting_container">
+          <p>
+            Sign Up with Email or Sign in via Facebook :P
+          </p>
+      </div>
+    </div>
+    <div class="container">
+      <div class="form-group">
+        <label for="usr">Email:</label>
+        <input type="text" class="form-control" id="signup_txtEmail">
+      </div>
+      <div class="form-group">
+        <label for="pwd">Password:</label>
+        <input type="password" class="form-control" id="signup_txtPassword">
+      </div>
+      <div class="btn-group btn-group-lg">
+        <button id="btn_signup_submit" type="button" class="btn btn-customize">Sign Up</button>
+      </div>
+    </div>
+  </div>
+  <div class="home_page" style="display:none">
+      <div class="carousel-container">
+        <div id="demo" class="carousel slide" data-ride="carousel">
+          <!-- Indicators -->
+          <ul class="carousel-indicators">
+            <li data-target="#demo" data-slide-to="0" class="active"></li>
+            <li data-target="#demo" data-slide-to="1"></li>
+            <li data-target="#demo" data-slide-to="2"></li>
+          </ul>
+
+          <!-- The slideshow -->
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="lib/la.jpg" alt="Los Angeles" width="1100" height="500">
+            </div>
+            <div class="carousel-item">
+              <img src="lib/IMG_3638.jpg" alt="Chicago" width="1100" height="500">
+            </div>
+            <div class="carousel-item">
+              <img src="lib/IMG_3638.png" alt="New York" width="1100" height="500">
+            </div>
+          </div>
+
+          <!-- Left and right controls -->
+          <a class="carousel-control-prev" href="#demo" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+          </a>
+          <a class="carousel-control-next" href="#demo" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+          </a>
+        </div>
+      </div>
+
+    <!-- <div id="home_img_container">
+        <img id="home_img" src="lib/IMG_3638.png"/>
+    </div> -->
+
+      <div class="container">
+        <div class="home_message">
+          <p>Some annoucements. Might use twitter API for GC to post.</p>
+        </div>
+      </div>
+    </div>
+    <!-- end of home page -->
+
+    <!-- start of discussion page -->
+  <div class="discussion_page">
+
+    <div class="w3-container">
+      <br />
+      <div id="discuss_progress_container" class="w3-light-grey w3-round-xlarge" >
+        <div id="discuss_progress" class="w3-container w3-round-xlarge w3-center" style="width:100%">0</div>
+      </div>
+    </div>
+
+    <div class="discuss_list_container_title">
+      <div class="discuss_speaker_list">
+          <h4 class="list_title">Speaker's List</h4>
+      </div>
+
+      <div class="discuss_dir_list">
+        <h4 class="list_title">Direct Response</h4>
+      </div>
+    </div>
+    <div class="discuss_list_container">
+      <div class="discuss_speaker_list">
+        <div class="discuss_list_inner">
+          <ul id="speaker_ul">
+
+          </ul>
+        </div>
+
+      </div>
+      <div class="discuss_dir_list">
+        <div class="discuss_list_inner">
+          <ul id="dir_ul">
+
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+
+
+    <div class="container-fluid discuss_slider_container">
+      <ul class="range-labels">
+        <li id="slider-2" class="label label_select">Drop</li>
+        <li id="slider-1" class="label label_select">B_Drop</li>
+        <li id="slider0"  class="label label_select item_center">Impartial</li>
+        <li id="slider1"  class="label label_select item_right">B_Up</li>
+        <li id="slider2"  class="label label_select item_right">Up</li>
+      </ul>
+      <div class="slidecontainer">
+        <input type="range" min="-2" max="2" value="0" class="slider" id="myRange">
+      </div>
+      <ul class="range-labels">
+        <li id="num-2" class="label label_select">-2</li>
+        <li id="num-1" class="label label_select">-1</li>
+        <li id="num0" class="label item_center label_select">0</li>
+        <li id="num1" class="label item_right label_select">1</li>
+        <li id="num2" class="label item_right label_select">2</li>
+      </ul>
+    </div>
+
+    <div class="discuss_btn_container">
+      <button type="button" class="btn btn-customize" id="speaker_btn">Wanna Speak</button>
+      <button type="button" class="btn btn-customize" id="dir_resp_btn">Direct Resp</button>
+      <button type="button" class="btn btn-customize" id="m_vote_btn">M 2 Vote</button>
+    </div>
+  </div>
+    <!-- end of discussion page -->
+
+    <!-- start of footer nav -->
+    <div class="foot_bottom" style="display:none">
+      <ul class="ul_nav">
+        <li><a class="inactive" id="nav_discussion_btn">Discussion</a></li>
+        <li><a class="inactive" id="vote_btn">Vote</a></li>
+        <li><a class="inactive" id="cars_btn">Cars</a></li>
+      </ul>
+    </div>
+  <script src="js/amabeez.js"></script>
+</body>
+</html>
